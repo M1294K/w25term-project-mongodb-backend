@@ -7,7 +7,15 @@ import org.springframework.stereotype.Service
 
 @Service
 class PlayerService(private val playerRepository: PlayerRepository) {
-    fun getAllPlayers(): List<Player> = playerRepository.findAll()
+    fun getAllPlayers(): List<PlayerDto> = playerRepository.findAll().map {
+        PlayerDto(
+            id = it.id ?: "",
+            name = it.name,
+            division = it.division,
+            rating = it.rating
+        )
+    }
+
     fun getPlayersByOrg(org: String): List<PlayerDto> {
         return playerRepository.findByOrganizationIgnoreCase(org)
             .map {
