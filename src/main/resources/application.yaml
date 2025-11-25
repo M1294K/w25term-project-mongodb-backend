@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: w25w11-mongodb-backend
+  mongodb:
+    uri: ${MONGODB_URI}
