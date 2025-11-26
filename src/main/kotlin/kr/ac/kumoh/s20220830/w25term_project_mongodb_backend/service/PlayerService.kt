@@ -12,7 +12,9 @@ class PlayerService(private val playerRepository: PlayerRepository) {
             id = it.id ?: "",
             name = it.name,
             division = it.division,
-            rating = it.rating
+            rating = it.rating,
+            imageSrc = it.imageSrc ?: "",
+            organization = it.organization,
         )
     }
 
@@ -23,7 +25,8 @@ class PlayerService(private val playerRepository: PlayerRepository) {
                     id = it.id ?: "",
                     name = it.name,
                     division = it.division,
-                    rating = it.rating
+                    rating = it.rating,
+                    organization = it.organization,
                 )
             }
     }
