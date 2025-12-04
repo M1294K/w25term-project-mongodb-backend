@@ -17,18 +17,5 @@ class PlayerService(private val playerRepository: PlayerRepository) {
             organization = it.organization,
         )
     }
-
-    fun getPlayersByOrg(org: String): List<PlayerDto> {
-        return playerRepository.findByOrganizationIgnoreCase(org)
-            .map {
-                PlayerDto(
-                    id = it.id ?: "",
-                    name = it.name,
-                    division = it.division,
-                    rating = it.rating,
-                    organization = it.organization,
-                )
-            }
-    }
     fun getPlayerById(playerId: String): Player = playerRepository.findById(playerId).orElseThrow { RuntimeException("Player not found: $playerId") }
 }

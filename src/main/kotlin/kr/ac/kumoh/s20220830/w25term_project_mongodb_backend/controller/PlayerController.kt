@@ -8,17 +8,11 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = ["http://localhost:5173"])
+@CrossOrigin(origins = ["https://m1294k.github.io"])
 class PlayerController(private val playerService: PlayerService) {
     @GetMapping("/player")
     fun getAllPlayers(): ResponseEntity<List<PlayerDto>>{
         val result = playerService.getAllPlayers()
-        return ResponseEntity.ok(result)
-    }
-
-    @GetMapping("/{org}")
-    fun getPlayers(@PathVariable org: String): ResponseEntity<List<PlayerDto>>{
-        val result = playerService.getPlayersByOrg(org)
         return ResponseEntity.ok(result)
     }
 
