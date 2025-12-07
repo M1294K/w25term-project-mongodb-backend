@@ -7,6 +7,7 @@ import java.util.concurrent.ConcurrentHashMap
 
 @RestController
 @RequestMapping("/api/proxy")
+@CrossOrigin(origins = ["https://m1294k.github.io"])
 class ProxyController {
 
     // 이미지 캐시: URL → ByteArray
